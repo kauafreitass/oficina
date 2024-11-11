@@ -1,0 +1,68 @@
+nav {
+    display: flex;
+    transition: opacity 0.1s ease;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--cor-principal);
+    height: 10%;
+    padding: 12px 24px;
+    position: relative;
+    border-bottom: 1px solid var(--cor-hover);
+}
+
+.nav-logo img {
+    border-radius: 10px;
+}
+
+.login-btn {
+    color: var(--login-color);
+    font-size: 24px;
+}
+
+nav a {
+
+    position: relative;
+    font-size: 18px;
+    color: var(--cor-hover);
+    text-decoration: none;
+}
+
+nav form {
+    width: fit-content;
+}
+
+.nav-search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--search-bg);
+    width: 220px;
+    height: 45px;
+    border-radius: 30px;
+    gap: 5px;
+}
+
+.search-line {
+    height: 16px;
+    width: 1px;
+    background-color: var(--search-line);
+}
+
+.nav-search input {
+    border: transparent;
+    background: transparent;
+    outline: none;
+    height: 30px;
+    width: 150px;
+}
+
+.nav-search input {
+    color: rgb(0, 0, 0);
+}
+
+.search-btn {
+    background: transparent;
+    border: transparent;
+    cursor: pointer;
+    color: var(--search-btn);
+}

@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import "root.css";
+@import "nav.css";
+@import "footer.css";
+@import "other-media.css";
+
+.banner {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.banner img {
+    border-radius: 12px;
+}
+
+.product-container {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.products {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.most-visited-product {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: var(--products-bg);
+    padding: 10px;
+    width: 300px;
+    border-radius: 10px;
+}
+
+.most-visited-title {
+    font-size: 24px;
+    font-weight: 500;
+    position: relative;
+    left: 5px;
+    top: -5px;
+}
+
+.others-products {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: var(--products-bg);
+    padding: 10px;
+    border-radius: 10px;
+    width: 750px;
+}
+
+.others-products-title {
+    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+    position: relative;
+    left: 5px;
+    top: -5px;
+}
+
+.product {
+    background-color: var(--products-bg);
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    justify-content: center;
+    width: 235px;
+}
+
+.product-logo {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: 200px;
+    height: 200px;
+}
+
+.product-logo img {
+    border-radius: 5px;
+    width: 200px;
+}
+
+.product-title p {
+    font-weight: 500;
+    font-size: 18px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 250px;
+}
+
+.product-price {
+    display: flex;
+    flex-direction: column;
+    font-weight: 400;
+    font-size: 22px;
+}
+
+.old-price {
+    font-weight: 200;
+    text-decoration: line-through;
+    color: var(--old-price);
+    font-size: 12px;
+    position: relative;
+    top: 4px;
+    margin: 0;
+    padding: 0;
+}
+
+.product-price b {
+    font-weight: 300;
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+}
+
+.promotion-text {
+    position: relative;
+    left: 4px;
+    bottom: 2px;
+    font-size: 12px;
+    font-weight: 400;
+    color: green;
+}
+
+.more-products {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: var(--products-bg);
+    padding: 10px;
+    border-radius: 10px;
+    width: 1100px;
+}
+
+.products a {
+    text-decoration: none;
+    color: var(--cor-hover);
+    transition: all 0.2s;
+}
+
+.products a:hover {
+    text-decoration: none;
+    color: var(--link-hover);
+}
+
+.more {
+    display: flex;
+    gap: 50px;
+}
+
+.nav-profile {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    font-weight: 400;
+    font-size: 24px;
+}
+
+.nav-profile strong {
+    font-weight: 600;
+}
+
+@media (max-width:1281px) {
+    .banner {
+        display: none;
+    }
+
+    .product-container {
+        margin: auto;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        gap: 5px;
+    }
+
+    .product-container:last-child {
+        margin-bottom: 0;
+    }
+
+    #more-products {
+        flex-wrap: wrap;
+        margin: auto;
+    }
+
+    .others-products, .most-visited-product, .more-products {
+        width: fit-content;
+        margin: auto;
+    }
+
+    nav {
+        display: flex;
+    }
+
+    .nav-search {
+        display: none;
+    }
+}
+
+@media (max-width:1024px) {
+    .product-container {
+        margin: auto;
+    }
+    #first-product-container {
+        flex-wrap: wrap;
+        gap: 25px;
+        margin-top: 25px;
+        margin-bottom: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .banner {
+        display: none;
+    }
+
+    .product-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .products {
+        flex-direction: column;
+        margin: auto;
+    }
+    
+
+    .others-products, .most-visited-product, .more-products {
+        width: fit-content;
+        margin: auto;
+    }
+}
