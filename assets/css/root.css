@@ -4,13 +4,8 @@
     --cor-secundario: #F23005;
     --cor-hover: #0D0D0D;
     --cor-terciaria: #D92B04;
-    --cor-letra: #731702;
-    --search-btn: rgba(68, 68, 68, 0.8);
-    --search-line: rgba(68, 68, 68, 0.4);
-    --search-bg: rgb(230, 230, 230);
+    --cor-letra: #000000;
     --login-color: rgb(68, 68, 68);
-    --products-bg: rgb(255, 255, 255);
-    --old-price: rgb(125, 125, 125);
     --footer: rgba(125, 125, 125, 0.2);
     --link-hover: #0077ff;
 }

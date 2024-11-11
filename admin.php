@@ -35,18 +35,18 @@ if (isset($_SESSION['logado'])) {
 
 <body>
 <nav>
-    <div class="nav-logo">
-        <a href="index.php">
-        <img src="assets\imgs\logo.png" alt="" width="200px">
-        </a>
+    <div class="services">
+        <a href="#"> <i class="fa-solid fa-plus"></i> Nova manutenção</a>
+        <a href="#"> <i class="fa-solid fa-gear"></i> Controle de veículos</a>
+        <a href="#"> <i class="fa-solid fa-clock-rotate-left"></i> Histórico de serviços</a>
     </div>
     <div class="login">
         <?php
         if (isset($_SESSION['logado'])) {
-
-            echo '<a class="login-btn" href="./login/logout.php" title="Logout"><i class="fa-solid fa-right-from-bracket"></i></a>';
+            echo '<a class="login-btn" href="./login/logout.php" title="Logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>';
         } else {
-            echo '<a class="login-btn" href="./login/index.php" title="Login"><i class="fa-solid fa-user"></i></a>';
+            // header('location: index.php');
+            echo '<a class="login-btn" href="./login/index.php" title="Login"><i class="fa-solid fa-user"></i> Login</a>';
         }
         ?>
 
@@ -67,7 +67,7 @@ if (isset($_SESSION['logado'])) {
 </div>
 
 
-<section class="product-container" id="first-product-container">
+<section class="" id="first-product-container">
 
     
 </section>
