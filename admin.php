@@ -27,10 +27,10 @@ if (isset($_SESSION['logado'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets\css\index.css">
+    <link rel="stylesheet" href="assets\css\admin.css">
     <link rel="shortcut icon" href="assets\imgs\logo.png" type="image/x-icon">
     <script src="https://kit.fontawesome.com/904bf533d7.js" crossorigin="anonymous"></script>
-    <title>Início - E-Commerce</title>
+    <title>Página de Admin - AK</title>
 </head>
 
 <body>
@@ -61,14 +61,27 @@ if (isset($_SESSION['logado'])) {
     </div>
 <?php } ?>
 
+<section class="">
 
-<div class="banner">
-    <img src="assets\imgs\social_media_banner_consumer_week_with_20_off (1).jpg" alt="" width="1200px">
-</div>
-
-
-<section class="" id="first-product-container">
-
+    <div class="card">
+        <div class="info-texts">
+            <div class="vehicle-name">
+                <h1>Lancer Evolution X</h1>
+            </div>
+            <div class="other-service-infos">
+                <p>Nome do cliente</p>
+                <p>Quilometragem do veículo</p>
+                <p>R$ 00,00</p>
+            </div>
+        </div>
+        <div class="services-needed">
+            <ul>
+                <li>Troca de óleo</li>
+                <li>Troca de pneu</li>
+                <li>Checar motor</li>
+            </ul>
+        </div>        
+    </div>
     
 </section>
 
