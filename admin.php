@@ -70,10 +70,13 @@ if (isset($_SESSION['logado'])) {
 
         <div class="last-services-cards">
             <?php
-            for ($i = 0; $i < 4; $i++) {
+            for ($i = 0; $i < 6; $i++) {
                 echo '
             <div class="card">
             <div class="infos-text">
+            <div class="vehicle-image">
+                <img src="assets/imgs/carro.jfif" alt="">
+            </div>
                 <div class="vehicle-name">
                     <h1>Lancer Evolution X</h1>
                 </div>

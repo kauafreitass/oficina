@@ -23,7 +23,7 @@ if (isset($_POST['login-button'])) {
                 // Verifica senha
                 $senha = md5($senha);
                 $stmt = $connect->prepare("SELECT * FROM usuarios WHERE login = :login AND senha = :senha");
-                $stmt->bindParam(':login', $login);
+                $stmt->bindParam    (':login', $login);
                 $stmt->bindParam(':senha', $senha);
                 $stmt->execute();
 
@@ -66,25 +66,6 @@ if (isset($_POST['login-button'])) {
             <!-- FORM HEADER -->
             <div id="form_header">
                 <h1>Login</h1>
-                <i id="mode_icon" class="fa-solid fa-moon"></i>
-            </div>
-
-            <!-- SOCIAL MEDIA LINKS -->
-            <div id="social_media">
-                <!-- FACEBOOK -->
-                <a href="#">
-                    <img src="assets/imgs/facebook.png" alt="">
-                </a>
-
-                <!-- GOOGLE -->
-                <a href="#">
-                    <img src="assets/imgs/google.png" alt="Google logo">
-                </a>
-
-                <!-- GITHUB -->
-                <a href="#">
-                    <img src="assets/imgs/github.png" alt="">
-                </a>
             </div>
 
             <!-- INPUTS -->
@@ -107,7 +88,7 @@ if (isset($_POST['login-button'])) {
                         Senha
                         <div class="input-field">
                             <i class="fa-solid fa-key"></i>
-                            <input type="password" id="password" name="senha" >
+                            <input type="password" id="password" name="senha">
                         </div>
                     </label>
 
@@ -136,8 +117,6 @@ if (isset($_POST['login-button'])) {
         </form>
     </main>
 
-    <!-- JAVASCRIPT -->
-    <script type="text/javascript" src="assets/js/script.js"></script>
 </body>
 
 </html>
