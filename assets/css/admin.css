@@ -5,6 +5,40 @@
 @import "footer.css";
 @import "other-media.css";
 
+.last-services {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    margin: 3% 0;
+}
+
+.last-services-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 36px;
+    justify-content: space-between;
+    margin: 0 2%;
+}
+
+.last-services-title {
+    user-select: none;
+}
+
 .card {
     display: flex;
+    align-items: center;
+    border: 1px solid black;
+    width: fit-content;
+    padding: 12px;
+    margin: 4px;
+    gap: 40px;
+    user-select: none;
+
+    transition: 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    cursor: pointer;
 }

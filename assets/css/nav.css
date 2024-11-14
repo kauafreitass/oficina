@@ -5,18 +5,32 @@ nav {
     align-items: center;
     background-color: var(--cor-principal);
     height: 10%;
-    padding: 0 24px;
+    padding: 4px 24px;
     position: relative;
     border-bottom: 1px solid var(--cor-hover);
 }
 
-.nav-logo img {
-    border-radius: 10px;
+.nav-profile {
+    display: flex;
+    justify-content: center;
+}
+
+.nav-logo a img {
+    height: 100px;
+    width: 200px;
+    object-fit: cover;
 }
 
 .login-btn {
     color: var(--login-color);
     font-size: 24px;
+    text-decoration: none;
+
+    transition: 0.5s ease;
+}
+
+.login-btn:hover {
+    color: var(--link-hover);
 }
 .services {
     display: flex;
@@ -25,8 +39,9 @@ nav {
 
 .services a {
     color: var(--cor-letra);
-
-    transition: 0.1s ease;
+    text-decoration: none;
+    
+    transition: 0.5s ease;
 }
 
 .services a:hover {

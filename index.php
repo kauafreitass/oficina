@@ -37,7 +37,7 @@ if (isset($_SESSION['logado'])) {
 <nav>
     <div class="nav-logo">
         <a href="index.php">
-        <img src="assets\imgs\logo.png" alt="" width="200px">
+        <img src="assets\imgs\logo.png" alt="">
         </a>
     </div>
     <div class="login">
@@ -60,11 +60,6 @@ if (isset($_SESSION['logado'])) {
         <span>Bem vindo, <strong><?php echo $dados['nome']; ?></strong></span>
     </div>
 <?php } ?>
-
-
-<div class="banner">
-    <img src="assets\imgs\social_media_banner_consumer_week_with_20_off (1).jpg" alt="" width="1200px">
-</div>
 
 
 <section class="product-container" id="first-product-container">

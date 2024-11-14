@@ -31,7 +31,7 @@ if (isset($_POST['login-button'])) {
                     $dados = $stmt->fetch(PDO::FETCH_ASSOC);
                     $_SESSION['logado'] = true;
                     $_SESSION['id_usuario'] = $dados['id'];
-                    header('Location: ../index.php');
+                    header('Location: ../admin.php');
                     exit;
                 } else {
                     $erros[] = '<li class="login-error"> Usuário e senha não conferem. </li>';
