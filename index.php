@@ -1,21 +1,15 @@
 <?php
 // Conexão
-require_once './login/db_connect.php';
+require_once 'config.php';
+require_once 'controller/LoginController.php';
 session_start();
 
 // Verificação
 if (isset($_SESSION['logado'])) {
     $id = $_SESSION['id_usuario'];
 
-    try {
-        // Consulta ao banco de dados
-        $stmt = $connect->prepare("SELECT * FROM usuarios WHERE id = :id");
-        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-        $stmt->execute();
-        $dados = $stmt->fetch(PDO::FETCH_ASSOC);
-    } catch (PDOException $e) {
-        echo "Erro ao buscar dados do usuário: " . $e->getMessage();
-    }
+    $controller = new LoginController();
+    $controller->vericaIdSessao($id);
 }
 ?>
 
@@ -43,23 +37,16 @@ if (isset($_SESSION['logado'])) {
     <div class="login">
         <?php
         if (isset($_SESSION['logado'])) {
-
-            echo '<a class="login-btn" href="./login/logout.php" title="Logout"><i class="fa-solid fa-right-from-bracket"></i></a>';
+            header('location: view/admin/index.php');
+            echo '<a class="login-btn" href="view/login/logout.php" title="Logout"><i class="fa-solid fa-right-from-bracket"></i></a>';
         } else {
-            echo '<a class="login-btn" href="./login/index.php" title="Login"><i class="fa-solid fa-user"></i></a>';
+            echo '<a class="login-btn" href="view/login/index.php" title="Login"><i class="fa-solid fa-user"></i></a>';
         }
         ?>
 
     </div>
 
 </nav>
-
-<!-- Se estiver logado, irá dizer bem vindo -->
-<?php if (isset($_SESSION['logado'])) { ?>
-    <div class="nav-profile">
-        <span>Bem vindo, <strong><?php echo $dados['nome']; ?></strong></span>
-    </div>
-<?php } ?>
 
 
 <section class="product-container" id="first-product-container">

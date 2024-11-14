@@ -1,6 +1,7 @@
 <?php
 // Conexão
-require_once 'db_connect.php';
+require_once '../../db_connect.php';
+require_once '../../controller/LoginController.php';
 // Sessão
 session_start();
 
@@ -13,35 +14,7 @@ if (isset($_POST['login-button'])) {
     if (empty($login) || empty($senha)) {
         $erros[] = '<li class="login-error">Preencha todos os campos</li>';
     } else {
-        try {
-            // Verifica se o usuário existe
-            $stmt = $connect->prepare("SELECT * FROM usuarios WHERE login = :login");
-            $stmt->bindParam(':login', $login);
-            $stmt->execute();
-
-            if ($stmt->rowCount() > 0) {
-                // Verifica senha
-                $senha = md5($senha);
-                $stmt = $connect->prepare("SELECT * FROM usuarios WHERE login = :login AND senha = :senha");
-                $stmt->bindParam    (':login', $login);
-                $stmt->bindParam(':senha', $senha);
-                $stmt->execute();
-
-                if ($stmt->rowCount() == 1) {
-                    $dados = $stmt->fetch(PDO::FETCH_ASSOC);
-                    $_SESSION['logado'] = true;
-                    $_SESSION['id_usuario'] = $dados['id'];
-                    header('Location: ../admin.php');
-                    exit;
-                } else {
-                    $erros[] = '<li class="login-error"> Usuário e senha não conferem. </li>';
-                }
-            } else {
-                $erros[] = '<li class="login-error"> Usuário inexistente </li>';
-            }
-        } catch (PDOException $e) {
-            $erros[] = '<li class="login-error">Erro ao conectar ao banco de dados</li>';
-        }
+        $controller->login($login, $senha);
     }
 }
 ?>
@@ -100,7 +73,7 @@ if (isset($_POST['login-button'])) {
                     </div>
                 </div>
             </div>
-
+    
             <?php
             if (empty($erros)) {
             } else {

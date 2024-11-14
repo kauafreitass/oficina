@@ -17,7 +17,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 36px;
-    justify-content: space-between;
+    justify-content: space-evenly;
     margin: 0 2%;
 }
 
@@ -25,12 +25,28 @@
     user-select: none;
 }
 
+.infos-text {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.vehicle-image {
+    margin: 0;
+    padding: 0;
+}
+
+.vehicle-image img {
+    width: 150px;
+}
+
 .card {
     display: flex;
     align-items: center;
     border: 1px solid black;
     width: fit-content;
-    padding: 12px;
+    padding: 8px;
+    border-radius: 4px;
     margin: 4px;
     gap: 40px;
     user-select: none;
