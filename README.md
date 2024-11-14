@@ -20,7 +20,7 @@ Prepare o Banco de Dados:
 Abra o phpMyAdmin no seu navegador. Crie um banco de dados chamado oficina e importe o arquivo SQL fornecido com o projeto para configurar as tabelas e os dados necessários.
 
 Ajuste as Configurações do Projeto:
-No arquivo login/db_connect.php, configure os dados de acesso ao banco de dados, se necessário:
+No arquivo config.php, configure os dados de acesso ao banco de dados, se necessário:
 
 php
 Copiar código
