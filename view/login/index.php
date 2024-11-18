@@ -11,7 +11,7 @@ if (isset($_POST['login-button'])) {
     $login = $_POST['login'];
     $password = $_POST['password'];
 
-    if (empty($login) || empty($senha)) {
+    if (empty($login) || empty($password)) {
         $erros[] = '<li class="login-error">Preencha todos os campos</li>';
     } else {
         $controller = new LoginController();

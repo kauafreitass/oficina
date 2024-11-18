@@ -42,13 +42,13 @@ class LoginModel {
         return $stmt->execute();
     }
 
-    public function VerificaSenha($login, $senha)
+    public function VerificaSenha($login, $password)
     {
         // Verifica senha
-        $senha = md5($senha);
+        $password = md5($password);
         $stmt = $this->pdo->prepare("SELECT * FROM users WHERE login = :login AND password = :password");
         $stmt->bindParam(':login', $login);
-        $stmt->bindParam(':password', $senha);
+        $stmt->bindParam(':password', $password);
         return $stmt->execute();
     }
 

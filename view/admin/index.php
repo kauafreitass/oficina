@@ -28,7 +28,7 @@ if (!isset($_SESSION['logado'])) {
 <body>
     <nav>
         <div class="services">
-            <a href="manutencao.php"> <i class="fa-solid fa-plus"></i> Novo serviço</a>
+            <a href="maintenance.php"> <i class="fa-solid fa-plus"></i> Novo serviço</a>
             <a href="vehicles.php"> <i class="fa-solid fa-gear"></i> Controle de veículos</a>
         </div>
         <div class="login">
@@ -95,7 +95,7 @@ if (!isset($_SESSION['logado'])) {
                         <a href="delete.php?id=<?=$lastService['id']?>"><i class="fa-solid fa-trash-can"></i></a>
                     </div>
                     <div class="edit-btn">
-                        <a href="manutencao.php?id=<?=$lastService['id']?>"><i class="fa-solid fa-pencil"></i></a>
+                        <a href="maintenance.php?id=<?=$lastService['id']?>"><i class="fa-solid fa-pencil"></i></a>
                     </div>
                 </div>
         </div>

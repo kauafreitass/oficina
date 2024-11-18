@@ -29,7 +29,7 @@ if (!isset($_SESSION['logado'])) {
     <nav>
         <div class="services">
             <a href="index.php"> <i class="fa-solid fa-home"></i> Início</a>
-            <a href="manutencao.php"> <i class="fa-solid fa-plus"></i> Novo serviço</a>
+            <a href="maintenance.php"> <i class="fa-solid fa-plus"></i> Novo serviço</a>
         </div>
         <div class="login">
             <?php

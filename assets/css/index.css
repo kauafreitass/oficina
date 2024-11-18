@@ -2,3 +2,34 @@
 @import "nav.css";
 @import "footer.css";
 @import "other-media.css";
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+.welcome-container {
+    border-radius: 8px;
+    padding: 30px;
+    max-width: 1000px;
+    width: 100%;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #1E4C75;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
+}

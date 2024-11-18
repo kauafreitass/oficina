@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../assets\css\manutencao.css">
+    <link rel="stylesheet" href="../../assets\css\maintenance.css">
     <link rel="shortcut icon" href="../../assets\imgs\logo.png" type="image/x-icon">
     <script src="https://kit.fontawesome.com/904bf533d7.js" crossorigin="anonymous"></script>
     <title>Página de Admin - AK</title>
