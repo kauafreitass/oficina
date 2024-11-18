@@ -1,60 +1,149 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
 @import "root.css";
 @import "nav.css";
 @import "footer.css";
 @import "other-media.css";
 
-.maintenance {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100vw;
+body {
+    background-color: #f7f9fc; 
+    font-family: 'Arial', sans-serif;
+}
 
+.maintenance {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 40px;
+    background-color: #ffffff; 
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.maintenance:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
 }
 
 .form-title {
-    margin: 24px;
+    font-size: 36px; 
+    margin-bottom: 30px;
+    text-align: center;
+    color: #000; 
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
-    gap: 20px;
 }
 
-.form-input, .form-services {
+.form-field {
+    display: flex;
+    gap: 4px;
+    flex-direction: column;
+    margin-bottom: 25px;
+}
+
+.form-field label {
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-input {
+    display: flex;
+    align-items: center;
+    border: 2px solid rgba(0, 0, 0, 0.2)    ; 
+    border-radius: 5px;
+    padding: 12px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-input input {
+    border: none;
+    outline: none;
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.form-input:focus-within {
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.5); 
+}
+
+.form-services {
     display: flex;
     flex-direction: column;
+    gap: 8px;
+    margin-bottom: 25px;
+    padding: 20px;
+    border: 2px solid rgba(0, 0, 0, 0.2); 
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-services h3 {
+    font-size: 28px;
+    color: #ff0000;
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.form-services .form-check {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px; 
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.1); 
+    border-radius: 5px; 
+    transition: background-color 0.3s ease; 
+}
+
+.form-services .form-check:hover {
+    background-color: #ffe0e0; 
+}
+
+.form-services .form-check input {
+    margin-right: 15px; 
+    cursor: pointer; 
+}
+
+.form-services .form-check label {
+    font-weight: 500;
+    color: #555;
+    font-size: 18px;
 }
 
 .form-check {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    margin-bottom: 15px;
 }
 
 .form-button {
-    display: flex;
-    justify-content: center;
+    text-align: center;
 }
 
 .form-button button {
-    background-color: rgba(106, 255, 47, 0.5);
-    padding: 12px;
-    width: 100%;
-    font-size: 16px;
-    font-weight: 600;
-    text-align: center;
+    background-color: rgb(12, 244, 39); 
+    color: white;
     border: none;
-    border-radius: 12px;
+    border-radius: 5px;
+    padding: 14px 24px;
     cursor: pointer;
-
-    transition: .3s ease;
+    font-size: 18px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .form-button button:hover {
-    background-color: rgba(106, 255, 47, 1);
-    transform: scale(1.02);
+    background-color: #cc0000; 
+    transform: translateY(-3px);
+}
+
+.form-button button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }

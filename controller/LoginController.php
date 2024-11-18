@@ -1,6 +1,6 @@
 <?php
 
-require_once 'C:\aluno2\xampp\htdocs\oficina\model\LoginModel.php';
+require_once 'C:\aluno2\htdocs\oficina\model\LoginModel.php';
 
 class LoginController {
     private $model;
@@ -9,8 +9,8 @@ class LoginController {
         $this->model = new LoginModel();
     }
     
-    public function Login($login, $senha) {
-        $this->model->login($login, $senha);
+    public function Login($login, $password) {
+        $this->model->login($login, $password);
     }
 
     public function vericaIdSessao($id) {

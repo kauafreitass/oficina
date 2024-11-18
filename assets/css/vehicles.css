@@ -1,0 +1,43 @@
+@import "root.css";
+@import "nav.css";
+@import "footer.css";
+@import "other-media.css";
+
+/* Estilo para a seção de veículos */
+.vehicles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+/* Estilo para cada card de veículo */
+.vehicle-card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 15px;
+    width: 200px; /* Ajuste conforme necessário */
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+/* Efeito de hover para o card */
+.vehicle-card:hover {
+    transform: scale(1.05);
+}
+
+/* Estilo para a imagem do veículo */
+.vehicle-card img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+/* Estilo para os parágrafos dentro do card */
+.vehicle-card p {
+    margin: 10px 0;
+    font-size: 14px;
+    color: #333;
+}

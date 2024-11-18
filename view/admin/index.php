@@ -2,14 +2,12 @@
 // Conexão
 require_once '../../config.php';
 require_once '../../controller/LoginController.php';
+require_once '../../controller/ServicesController.php';
 session_start();
 
 // Verificação
-if (isset($_SESSION['logado'])) {
-    $id = $_SESSION['id_usuario'];
-
-    $controller = new LoginController();
-    $controller->vericaIdSessao($id);
+if (!isset($_SESSION['logado'])) {
+    header('location: ../login/index.php');
 }
 ?>
 
@@ -30,9 +28,8 @@ if (isset($_SESSION['logado'])) {
 <body>
     <nav>
         <div class="services">
-            <a href="manutencao.php"> <i class="fa-solid fa-plus"></i> Nova manutenção</a>
-            <a href="#"> <i class="fa-solid fa-gear"></i> Controle de veículos</a>
-            <a href="#"> <i class="fa-solid fa-clock-rotate-left"></i> Histórico de serviços</a>
+            <a href="manutencao.php"> <i class="fa-solid fa-plus"></i> Novo serviço</a>
+            <a href="vehicles.php"> <i class="fa-solid fa-gear"></i> Controle de veículos</a>
         </div>
         <div class="login">
             <?php
@@ -57,37 +54,53 @@ if (isset($_SESSION['logado'])) {
 
         <div class="last-services-cards">
             <?php
-            for ($i = 0; $i < 4; $i++) {
+            $controller = new ServicesController();
+            $lastServices = $controller->getLastServices();
+
+            foreach ($lastServices as $lastService) {
+                $toDo = $lastService['services'];
+                $toDo = json_decode($toDo);
+
                 echo '
-            <div class="card">
+                <div class="card">
             <div class="infos-text">
             <div class="vehicle-image">
-                <img src="../../assets/imgs/carro.jpg" alt="">
+                <img src="../../assets/imgs/img-vazia.jfif" alt="">
             </div>
                 <div>
                     <div class="vehicle-name">
-                        <h1>Lancer Evolution X</h1>
+                        <h1>' . $lastService["vehicle"] . '</h1>
                     </div>
                     <div class="infos">
-                        <p>Jobson</p>
-                        <p>50.000km</p>
-                        <p>R$ 390,00</p>
+                        <p>' . $lastService["customer"] . '</p>
+                        <p>' . $lastService["mileage"] . 'km</p>
                     </div>
                 </div>
             </div>
-            <div class="services-needed">
-                <ul>
-                    <h3>Serviços</h3>
-                    <li>Troca de óleo</li>
-                    <li>Troca de pneu</li>
-                    <li>Checar motor</li>
-                </ul>
-            </div>        
-                </div>
-                ';
-            }
+            ';
+
             ?>
+                <div class="services-needed">
+                    <ul>
+                        <h3>Serviços</h3>
+                        <?php
+                        for ($i = 0; $i < count($toDo); $i++) {
+                            echo "<li>" . $toDo[$i]  . "</li>";
+                        };
+                        ?>
+                    </ul>
+                </div>
+                <div class="btns">
+                    <div class="delete-btn">
+                        <a href="delete.php?id=<?=$lastService['id']?>"><i class="fa-solid fa-trash-can"></i></a>
+                    </div>
+                    <div class="edit-btn">
+                        <a href="manutencao.php?id=<?=$lastService['id']?>"><i class="fa-solid fa-pencil"></i></a>
+                    </div>
+                </div>
         </div>
+    <?php } ?>
+    </div>
 
     </section>
 

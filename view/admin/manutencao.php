@@ -2,14 +2,24 @@
 // Conexão
 require_once '../../config.php';
 require_once '../../controller/LoginController.php';
+require_once '../../controller/ServicesController.php';
 session_start();
 
 // Verificação
-if (isset($_SESSION['logado'])) {
-    $id = $_SESSION['id_usuario'];
+if (!isset($_SESSION['logado'])) {
+    header('location: ../login/index.php');
+}
 
-    $controller = new LoginController();
-    $controller->vericaIdSessao($id);
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $plate = $_POST['plate'];
+    $vehicle = $_POST['vehicle'];
+    $mileage = $_POST['mileage'];
+    $customer = $_POST['customer'];
+
+    $services = [$_POST['service1'] ?? '', $_POST['service2'] ?? '', $_POST['service3'] ?? ''];
+
+    $controller = new ServicesController;
+    $controller->addService($plate, $vehicle, $mileage, $customer, $services);
 }
 ?>
 
@@ -31,8 +41,7 @@ if (isset($_SESSION['logado'])) {
     <nav>
         <div class="services">
             <a href="index.php"> <i class="fa-solid fa-home"></i> Início</a>
-            <a href="#"> <i class="fa-solid fa-gear"></i> Controle de veículos</a>
-            <a href="#"> <i class="fa-solid fa-clock-rotate-left"></i> Histórico de serviços</a>
+            <a href="vehicles.php"> <i class="fa-solid fa-gear"></i> Controle de veículos</a>
         </div>
         <div class="login">
             <?php
@@ -50,46 +59,65 @@ if (isset($_SESSION['logado'])) {
 
     <section>
         <div class="maintenance">
-            <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
-                <div class="form-title">Nova manutenção</div>
+            <form action="<?php
+                            if (isset($_GET['id'])) {
+                                echo 'edit.php?id=' . $_GET['id'];
+                            } else {
+                                echo $_SERVER['PHP_SELF'];
+                            }
+                            ?>" method="post">
+                <div class="form-title">Novo serviço</div>
                 <div class="form-group">
-                    <div class="form-input">
-                        <label for="placa">Placa do veículo:</label>
-                        <input type="text" id="placa" name="placa" required>
+                    <div class="form-field">
+                        <label for="plate">Placa do veículo:</label>
+                        <div class="form-input">
+                            <i class="fa-solid fa-sign-hanging"></i>
+                            <input type="text" id="plate" name="plate" required>
+                        </div>
                     </div>
 
-                    <div class="form-input">
-                        <label for="veiculo">Nome do veículo</label>
-                        <input type="text" id="veiculo" name="veiculo" required>
+                    <div class="form-field">
+                        <label for="vehicle">Nome do veículo:</label>
+                        <div class="form-input">
+                            <i class="fa-solid fa-car-side"></i>
+                            <input type="text" id="vehicle" name="vehicle" required>
+                        </div>
                     </div>
 
-                    <div class="form-input">
-                        <label for="quilometragem">Quilometragem do veículo:</label>
-                        <input type="text" id="quilometragem" name="quilometragem" required>
+                    <div class="form-field">
+                        <label for="mileage">Quilometragem do veículo:</label>
+                        <div class="form-input">
+                            <i class="fa-solid fa-car-battery"></i>
+                            <input type="text" id="mileage" name="mileage" required>
+                        </div>
                     </div>
 
-                    <div class="form-input">
-                        <label for="cliente">Nome do cliente:</label>
-                        <input type="text" id="cliente" name="cliente" required>
-                    </div>
-
-                    <div class="form-services">
-                        <label for="services">Serviços:</label>
-
-                        <div class="form-check">
-                            <input type="checkbox" name="service-oil" id="oil">
-                            <label for="oil">Troca de óleo - R$ 20</label>
+                    <div class="form-field">
+                        <label for="customer"">Nome do cliente:</label>
+                        <div class=" form-input">
+                            <i class="fa-regular fa-id-card"></i>
+                            <input type="text" id="customer" name="customer"" required>
                         </div>
 
-                        <div class="form-check">
-                            <input type="checkbox" name="service-motor" id="motor">
-                            <label for="motor">Troca de motor - R$ 200</label>
-                        </div>
+                    </div>
 
-                        <div class="form-check">
-                            <input type="checkbox" name="service-wheel" id="wheel">
-                            <label for="wheel">Troca de pneu - R$ 50</label>
-                        </div>
+                    <div class=" form-services">
+                            <label for="services">Serviços:</label>
+
+                            <div class="form-check">
+                                <input type="checkbox" name="service1" id="oil" value="Troca de óleo">
+                                <label for="oil">Troca de óleo</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" name="service2" id="motor" value="Troca de motor">
+                                <label for="motor">Troca de motor</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" name="service3" id="wheel" value="Troca de pneu">
+                                <label for="wheel">Troca de pneu</label>
+                            </div>
                     </div>
                     <div class="form-button">
                         <button type="submit">Salvar</button>

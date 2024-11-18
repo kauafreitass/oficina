@@ -1,6 +1,6 @@
 <?php
 // Conexão
-require_once '../../db_connect.php';
+require_once '../../config.php';
 require_once '../../controller/LoginController.php';
 // Sessão
 session_start();
@@ -9,12 +9,13 @@ session_start();
 if (isset($_POST['login-button'])) {
     $erros = [];
     $login = $_POST['login'];
-    $senha = $_POST['senha'];
+    $password = $_POST['password'];
 
     if (empty($login) || empty($senha)) {
         $erros[] = '<li class="login-error">Preencha todos os campos</li>';
     } else {
-        $controller->login($login, $senha);
+        $controller = new LoginController();
+        $controller->login($login, $password);
     }
 }
 ?>
@@ -61,7 +62,7 @@ if (isset($_POST['login-button'])) {
                         Senha
                         <div class="input-field">
                             <i class="fa-solid fa-key"></i>
-                            <input type="password" id="password" name="senha">
+                            <input type="password" id="password" name="password">
                         </div>
                     </label>
 
@@ -75,10 +76,10 @@ if (isset($_POST['login-button'])) {
             </div>
     
             <?php
-            if (empty($erros)) {
+            if (empty($errors)) {
             } else {
-                foreach ($erros as $erro) {
-                    echo $erro;
+                foreach ($errors as $error) {
+                    echo $error;
                 }
             }
             ?>

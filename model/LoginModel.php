@@ -1,6 +1,6 @@
 <?php
 
-require_once('C:\aluno2\xampp\htdocs\oficina\config.php');
+require_once('C:\aluno2\htdocs\oficina\config.php');
 
 class LoginModel {
     public $dados;    
@@ -11,17 +11,17 @@ class LoginModel {
         $this->pdo = $database->getConnection();
     }
 
-    public function Login($login, $senha)
+    public function Login($login, $password)
     {
         try {
             $usuarioExiste = $this->usuarioExiste($login);
 
             if ($usuarioExiste) {
-                $verificaSenha = $this->VerificaSenha($login, $senha);
+                $verificaSenha = $this->VerificaSenha($login, $password);
 
                 if ($verificaSenha) {
                     $_SESSION['logado'] = true;
-                    header('Location: ../admin.php');
+                    header('Location: ../admin/index.php');
                     exit;
                 } else {
                     $erros[] = '<li class="login-error"> Usuário e senha não conferem. </li>';
@@ -37,7 +37,7 @@ class LoginModel {
     public function usuarioExiste($login)
     {
         // Verifica se o usuário existe
-        $stmt = $this->pdo->prepare("SELECT * FROM usuarios WHERE login = :login");
+        $stmt = $this->pdo->prepare("SELECT * FROM users WHERE login = :login");
         $stmt->bindParam(':login', $login);
         return $stmt->execute();
     }
@@ -46,9 +46,9 @@ class LoginModel {
     {
         // Verifica senha
         $senha = md5($senha);
-        $stmt = $this->pdo->prepare("SELECT * FROM usuarios WHERE login = :login AND senha = :senha");
+        $stmt = $this->pdo->prepare("SELECT * FROM users WHERE login = :login AND password = :password");
         $stmt->bindParam(':login', $login);
-        $stmt->bindParam(':senha', $senha);
+        $stmt->bindParam(':password', $senha);
         return $stmt->execute();
     }
 
@@ -56,7 +56,7 @@ class LoginModel {
     {
         try {
             // Consulta ao banco de dados
-            $stmt = $this->pdo->prepare("SELECT * FROM usuarios WHERE id = :id");
+            $stmt = $this->pdo->prepare("SELECT * FROM users WHERE id = :id");
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
             $stmt->execute();
             $dados = $stmt->fetch(PDO::FETCH_ASSOC);
