@@ -1,6 +1,6 @@
 <?php
 
-require_once 'C:\aluno2\htdocs\oficina\model\LoginModel.php';
+require_once 'C:\aluno2\xampp\htdocs\oficina\model\LoginModel.php';
 
 class LoginController {
     private $model;

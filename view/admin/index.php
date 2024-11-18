@@ -1,6 +1,6 @@
 <?php
 // Conexão
-require_once 'C:\aluno2\htdocs\oficina\config.php';
+require_once '../../config.php';
 require_once '../../controller/LoginController.php';
 session_start();
 

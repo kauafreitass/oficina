@@ -1,6 +1,6 @@
 <?php
 // Conexão
-require_once 'C:\aluno2\htdocs\oficina\config.php';
+require_once '../../config.php';
 require_once '../../controller/LoginController.php';
 session_start();
 
@@ -30,7 +30,7 @@ if (isset($_SESSION['logado'])) {
 <body>
     <nav>
         <div class="services">
-            <a href=""> <i class="fa-solid fa-home"></i> Início</a>
+            <a href="index.php"> <i class="fa-solid fa-home"></i> Início</a>
             <a href="#"> <i class="fa-solid fa-gear"></i> Controle de veículos</a>
             <a href="#"> <i class="fa-solid fa-clock-rotate-left"></i> Histórico de serviços</a>
         </div>
@@ -71,6 +71,28 @@ if (isset($_SESSION['logado'])) {
                     <div class="form-input">
                         <label for="cliente">Nome do cliente:</label>
                         <input type="text" id="cliente" name="cliente" required>
+                    </div>
+
+                    <div class="form-services">
+                        <label for="services">Serviços:</label>
+
+                        <div class="form-check">
+                            <input type="checkbox" name="service-oil" id="oil">
+                            <label for="oil">Troca de óleo - R$ 20</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input type="checkbox" name="service-motor" id="motor">
+                            <label for="motor">Troca de motor - R$ 200</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input type="checkbox" name="service-wheel" id="wheel">
+                            <label for="wheel">Troca de pneu - R$ 50</label>
+                        </div>
+                    </div>
+                    <div class="form-button">
+                        <button type="submit">Salvar</button>
                     </div>
                 </div>
 
