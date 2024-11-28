@@ -20,6 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $controller = new ServicesController;
     $controller->addService($plate, $vehicle, $mileage, $customer, $services);
+    header('location: index.php');
 }
 ?>
 
